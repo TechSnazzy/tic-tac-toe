@@ -15,7 +15,8 @@ const restartButton = document.getElementById('restartButton');
 
 function handleCellClick(clickedCellEvent) {
     const clickedCell = clickedCellEvent.target;
-    const clickedCellIndex = parseInt(clickedCell.getAttribute('data-cell-index'));
+    // Explicitly specify base 10 to avoid unexpected parsing in older browsers
+    const clickedCellIndex = parseInt(clickedCell.getAttribute('data-cell-index'), 10);
 
     if (gameState.board[clickedCellIndex] !== '' || !gameState.gameActive) {
         return;
